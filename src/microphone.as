@@ -82,6 +82,10 @@ package {
                 this.log("No microphone detected.");
             }
             ExternalInterface.call(JSObject + '.loaded',id);
+            if (mic.muted == false){
+                ExternalInterface.call(JSObject + '.ready',id);
+                ExternalInterface.call('console.log', "Status: mic.ready callback triggered (whitelisted site).");
+            }
         }
         
         public function start():void{
